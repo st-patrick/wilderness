@@ -10,8 +10,8 @@ SCREEN_SIZE = 600  # Screen will be square
 PLAYER_SIZE = 40
 ENEMY_SIZE = 40  # Increase enemy size for easier hit detection
 FPS = 30
-ATTACK_DISTANCE = 50
-ENEMY_MAX_HEALTH = 5  # Increase enemy health
+ATTACK_DISTANCE = 100  # Increase attack distance
+ENEMY_MAX_HEALTH = 10  # Increase enemy health
 
 # Colors
 WHITE = (255, 255, 255)
