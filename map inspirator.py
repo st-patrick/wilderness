@@ -16,7 +16,7 @@ def generate_map(density):
     return [[1 if random.random() < density else 0 for _ in range(MAP_WIDTH)] for _ in range(MAP_HEIGHT)]
 
 # Initialize player position
-player_x, player_y = MAP_WIDTH // 2, MAP_HEIGHT // 2
+player_x, player_y = random.choice([0, MAP_WIDTH - 1]), random.randint(0, MAP_HEIGHT - 1)
 move_counter = 0
 
 # Initialize screen
@@ -57,9 +57,9 @@ while running:
 
         move_counter = 0
 
-    # Check if player is walking off screen
-    if player_x < 0 or player_x >= MAP_WIDTH or player_y < 0 or player_y >= MAP_HEIGHT:
-        density -= 0.05  # Adjust density for next map
+    # Check if player is walking off screen and regen map
+    if (player_x == 0 and dx == -1) or (player_x == MAP_WIDTH - 1 and dx == 1) or \
+       (player_y == 0 and dy == -1) or (player_y == MAP_HEIGHT - 1 and dy == 1):
         current_map = generate_map(density)
         player_x, player_y = MAP_WIDTH // 2, MAP_HEIGHT // 2
 
